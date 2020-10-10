@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="container">
+     
+       
+    
+        <div class="keys">
+        <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="header">Let the Keybord Sing For you....</h1>
+            </div>
+        <div data-key="65" class="key col-md-2 col-sm-4">
+            <P>A</P>
+            <span class="sound">Clap</span>
+        </div>
+        <div data-key="83" class="key col-md-2  col-sm-4">
+            <P>S</P>
+            <span class="sound">Clap</span>
+        </div>
+        <div data-key="68" class="key col-md-2  col-sm-4">
+            <P>D</P>
+            <span class="sound">Clap</span>
+        </div>
+        <div data-key="70" class="key col-md-2 col-sm-4">
+            <P>F</P>
+            <span class="sound">Cap</span>
+        </div>
+        <div data-key="71" class="key col-md-2 col-sm-4">
+            <P>G</P>
+            <span class="sound">nooz</span>
+        </div>
+        <div data-key="71" class="key col-md-2  col-sm-4">
+            <P>p</P>
+            <span class="sound">nooz</span>
+        </div>
+        <div data-key="71" class="key col-md-2 col-sm-4 ">
+            <P>G</P>
+            <span class="sound">nooz</span>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+    <!-- including audio -->
+    <audio data-key="65" src="sounds/gun-cock.wav"></audio>
+    <audio data-key="83" src="sounds/drip.wav"></audio>
+    <audio data-key="68" src="sounds/dram.wav"></audio>
+    <audio data-key="70" src="sounds/coin_drop.wav"></audio>
+    <audio data-key="71" src="sounds/door_tap.wav"></audio>
+
+    <!-- script file -->
+    <script>
+         function remov(e){
+                if(e.propertyName!='transform') return;
+                console.log(e);
+                var c=e.target;
+                console.log(c);
+                // e.target.classList.remove('playing');
+            }
+       function ply(e){
+           const sound=document.querySelector(`audio[data-key="${e.keyCode}"`);
+           const key=document.querySelector(`.key[data-key="${e.keyCode}"`);
+           
+           if(!sound)return;
+           sound.currentTime=0;
+           sound.play();
+           key.classList.add('playing');  
+       }
+
+         
+           const keys=document.querySelectorAll('.key');
+           console.log(`thrbrb${keys}`);
+           keys.forEach(key => key.addEventListener('transitionend',remov));
+         
+           window.addEventListener('keydown',ply)
+    </script>
+</body>
+</html>
