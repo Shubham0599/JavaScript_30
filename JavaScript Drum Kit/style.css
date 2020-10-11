@@ -31,7 +31,7 @@ body{
     color: white;
     background-color: rgba(140, 240, 232, 0.534);
     text-shadow: 1.3px 0 0rem #141414;
-    transition: all .01s ease;
+    transition: all .05s ease;
 }
 .playing{
     transform: scale(1.1);

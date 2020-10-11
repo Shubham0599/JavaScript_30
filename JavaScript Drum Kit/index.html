@@ -62,10 +62,8 @@
     <script>
          function remov(e){
                 if(e.propertyName!='transform') return;
-                console.log(e);
-                var c=e.target;
+                var c=e.target.classList.remove('playing');
                 console.log(c);
-                // e.target.classList.remove('playing');
             }
        function ply(e){
            const sound=document.querySelector(`audio[data-key="${e.keyCode}"`);
@@ -79,7 +77,6 @@
 
          
            const keys=document.querySelectorAll('.key');
-           console.log(`thrbrb${keys}`);
            keys.forEach(key => key.addEventListener('transitionend',remov));
          
            window.addEventListener('keydown',ply)
