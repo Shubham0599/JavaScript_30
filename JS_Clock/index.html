@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Clock</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+    <div class="cont ">
+    <div class="clock col-sm-12 col-xs-12">
+        <div class="clock_face">
+            <div class="clock_hand hour"></div>
+            <div class="clock_hand min"></div>
+            <div class="clock_hand sec"></div>
+        </div>
+    </div>
+    <div class="time">
+TIME
+    </div>
+</div>
+</div>
+</div>
+    <script>
+        const secondHand=document.querySelector('.sec');
+        const minHand=document.querySelector('.min');
+        const hourHand=document.querySelector('.hour');
+        const tim=document.querySelector('.time');
+        function time(){
+        const now =new Date();
+
+        const second=now.getSeconds();
+        const secondDegree=(second/60)*360+90;
+
+        const min=now.getMinutes();
+        const minDegree=(min/60)*360+90;
+
+
+        const hour=now.getHours();
+        const hourDegree=(hour/12)*360+90;
+
+        secondHand.style.transform=`rotate(${secondDegree}deg)`;
+        minHand.style.transform=`rotate(${minDegree}deg)`;
+        hourHand.style.transform=`rotate(${hourDegree}deg)`;
+        tim.innerHTML=`Time ${hour}:${min}:${second}`;
+        console.log(secondDegree);
+        }
+        setInterval(time,1000);
+    </script>
+    
+</body>
+
+</html>
