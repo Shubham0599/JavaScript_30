@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .key{
+            transition: all 0.05 ;
+            border:8px solid yellow;
+            margin: 2rem;
+        }
+        .play{
+            transform: scale(1.1);
+            border: 9px solid red;
+            color:blue;
+           margin:2rem;
+        }
+    </style>
+</head>
+<body>
+    <div data-key="65" class="key">A</div>
+ <audio data-key="65" src="/JavaScript Drum Kit/sounds/209900__veiler__ride-n1.wav "></audio> 
+
+ 
+ <script>
+    //  const key=document.querySelector(`.key[data-key="65"]`);
+    //  function rm(e){
+    //      console.log("entera");
+    //  }
+
+    // function ply(e){
+
+      
+    //     const key=document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    //      const sound=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    //     if(!sound)return;
+    //     sound.currentTime=0;
+    //     sound.play();
+    //     key.classList.add('play');
+    // }
+    // window.addEventListener('transitionend',()=>{
+    //     alert("done");
+    // });
+    // window.addEventListener('keydown',ply);
+    
+    function time(){
+        const now =new Date();
+    console.log(now.getSeconds());
+    }
+
+    setInterval(time,1000);
+      
+    
+</script>  
+</body>
+</html>
