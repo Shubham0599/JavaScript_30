@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- CSS only -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <title>Pic_Filter</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Change control according to your choice..it's <span>JS</span></h1>
+                <div class="controls">
+                    <label>Spacing</label>
+                    <input type="range" name="spacing" min="10" max="100" value="10" data-unit="px"> 
+                    <label>Blur</label>
+                    <input type="range" name="blur" min="0" max="100" value="10" data-unit="px"> 
+                    <label>Color</label>
+                    <input type="color" name="color" value=""> 
+                </div>
+                <div class="co-mid-12">
+                    <img class="img-fluid" src="back.jpg" alt="no img">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <style>
+        :root{
+            --base:#c8ff00;
+            --spacing:10px;
+            --blur:0px;
+            --bright:1
+        }
+        
+        img{
+            padding: var(--spacing);
+            background-color: var(--base);
+            filter: blur(var(--blur));
+            filter: brightness(--bright);
+        }
+        span{
+            color:var(--base);
+        }
+    </style>
+</body>
+</html>
