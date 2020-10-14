@@ -4,12 +4,15 @@ html,body{
     
 }
 body{
-    background:url();
+    background:url(https://images.pexels.com/photos/462030/pexels-photo-462030.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
     background-size: cover;
     min-height: 100vh;
     display:flex;
     justify-content: center;
     align-items: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     
 }
 .cont{
@@ -19,6 +22,8 @@ body{
     margin-top:2rem;
     margin-left:50%;
     transform:translateX(-15%);
+    color:white;
+    font-weight: 300;
 }
 .clock{
    border:1.2rem solid black;
@@ -51,7 +56,7 @@ body{
     transform-origin: 100%;
 }
 .hour{
-    background-color: rgba(255, 0, 0, 0.397);
+    background-color: rgba(0, 47, 255, 0.466);
     height:13px;     
 }
 .min{
