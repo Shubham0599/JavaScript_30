@@ -12,14 +12,20 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Change control according to your choice..it's <span>JS</span></h1>
+                <h2>Change control according to your choice..it's <span><b>JS</b></span></h2>
                 <div class="controls">
-                    <label>Spacing</label>
+                    <div class="">
+                        <label>Spacing</label>
                     <input type="range" name="spacing" min="10" max="100" value="10" data-unit="px"> 
-                    <label>Blur</label>
-                    <input type="range" name="blur" min="0" max="100" value="10" data-unit="px"> 
+                    </div>
+                    <div>
+                    <label>Brightness</label>
+                    <input type="range" name="brightness" min="1" max="100" value="1" >
+                     </div>
+                     <div>
                     <label>Color</label>
-                    <input type="color" name="color" value=""> 
+                    <input type="color" name="base" value="#c8ff00"> 
+                </div>
                 </div>
                 <div class="co-mid-12">
                     <img class="img-fluid" src="back.jpg" alt="no img">
@@ -35,19 +41,43 @@
         :root{
             --base:#c8ff00;
             --spacing:10px;
-            --blur:0px;
-            --bright:1
+            --brightness:1;
+            --opacity:1;
         }
         
         img{
             padding: var(--spacing);
             background-color: var(--base);
-            filter: blur(var(--blur));
-            filter: brightness(--bright);
+            filter: brightness(var(--brightness));
+           
+            
         }
         span{
             color:var(--base);
+            text-transform: capitalize;
+            
+        }
+        body{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            text-transform: capitalize;
+        }
+    
+        .controls{
+            display:flex;
+            position:relative;
+            justify-content: center;
         }
     </style>
+    <script>
+         const input=document.querySelectorAll('.controls input');
+        function update(){
+            const suffix=this.dataset.unit || '';
+            document.documentElement.style.setProperty(`--${this.name}`,this.value + suffix);
+        }
+       
+        input.forEach(input=>input.addEventListener('change',update));
+        input.forEach(input=>input.addEventListener('mousemove',update));
+    </script>
 </body>
 </html>
