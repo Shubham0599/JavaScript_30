@@ -50,8 +50,28 @@
     }
 
     setInterval(time,1000);
-      
+     
+    1const  inventor=inventors.filter(x=>(x.year>1500&&x.year<1600)?true:false);
+    console.table(inventor);
+
+   2 const mapping=inventors.map(function(x){
+        var name=x.first+x.last;
+    })
+    console.log(name);
+   2 const mapping=inventors.map(x=>x.first+ ' '+x.last);
+   console.log(x);
     
+
+   3 const order=inventors.sort((a,b)=>{
+        if(a.first>a.last)return 1;
+        else return -1;
+    })
+    console.table(order);
+    
+    6
+
+
+
 </script>  
 </body>
 </html>
