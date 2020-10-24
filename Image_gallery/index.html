@@ -10,31 +10,82 @@
         html{
             margin:0;
             box-sizing: border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 32px;
+            font-weight: 300;
         }
         body{
             margin: 0;
             padding: 0;
+            
         }
+
+        *, *:before, *:after {
+      box-sizing: inherit;
+    }
 
         .ls{
             min-height: 100vh;
             display:flex;
+            overflow: hidden;
+            
         }
         .l{
-            color: white;
+            color: rgb(247, 243, 243);
             text-align: center;
             align-items: center;
             justify-content: center;
+            background-size: cover;
+            background-position: center;
             display:flex;
             flex:1;
+            flex-direction: column;
+            transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11) 0.2s;
         }
+        .l >*{
+            margin:0;
+            width:100%;
+            flex:1 0 auto;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            display:flex;
+            transition: transform 0.5s cubic-bezier(0.48, -0.31, 0.1, 1.87);
+        }
+        .l>*:first-child{transform: translateY(-100%);}
+        .l.open-active>*:first-child{transform: translateY(0);}
+        .l>*:last-child{transform: translateY(100%);}
+        .l.open-active>*:last-child{transform: translateY(0);}
+
+        .l.open{
+            font-size: 3 rem;
+            flex:5;
+        }
+       
+       .l p{
+           text-transform: capitalize;
+            font-size:29px;
+       }
+      
+       .l.open p:nth-child(2){
+           font-size: 50px;
+       }
+
+       @media only screen and (max-width: 600px) {
+      .panel p {
+        font-size: 1em;
+      }
+    }
 
 
         .im1{background-image: url(https://images.unsplash.com/photo-1603291851622-74b3453a08b6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
         .im2{background-image: url(https://images.unsplash.com/photo-1597247514723-af3556c36f25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
         .im3{background-image: url(https://images.unsplash.com/photo-1602880906715-41d14bb7b767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
-        .im4{background-image: url(https://images.unsplash.com/photo-1581757167481-4f2e0a4dc597?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
-       
+        .im4{background-image: url(https://images.unsplash.com/photo-1593714011419-91b10cd8a3a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
+        .im5{background-image: url(https://images.unsplash.com/photo-1581757167481-4f2e0a4dc597?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
+        .im6{background-image: url(https://images.unsplash.com/photo-1575677753169-cff039a42afa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);}
     </style>
     <div class="ls">
         <div class="l im1">
@@ -44,24 +95,48 @@
         </div>
         
         <div class="l im2">
-            <p>Let's</p>
-            <p>Do</p>
-            <p>It</p>
+            <p>All</p>
+            <p>Is</p>
+            <p>well</p>
         </div>
         
         <div class="l im3">
-            <p>Let's</p>
-            <p>Do</p>
-            <p>It</p>
+            <p>Always</p>
+            <p>Be</p>
+            <p>yourself</p>
         </div>
         
         <div class="l im4">
-            <p>Let's</p>
-            <p>Do</p>
-            <p>It</p>
+            <p>be</p>
+            <p>the</p>
+            <p>change</p>
         </div>
-
-
+        <div class="l im5">
+            <p>dare</p>
+            <p>to</p>
+            <p>do</p>
+        </div>
+        <div class="l im6">
+            <p>Success</p>
+            <p>is</p>
+            <p>yours</p>
+        </div>
     </div>
+    <audio class="soun" src="/JavaScript Drum Kit/sounds/dram.wav"></audio>
 </body>
+<script>
+    const single=document.querySelectorAll('.l');
+
+    const sound=document.querySelector('.soun');
+    function tooglegrow(){
+        sound.play();
+        this.classList.toggle('open');
+    }
+    function toogletext(){
+        this.classList.toggle('open-active')
+    }
+
+    single.forEach(x=>x.addEventListener('click',tooglegrow));
+    single.forEach(x=>x.addEventListener('transitionend',toogletext));
+</script>
 </html>
