@@ -52,6 +52,7 @@ form button:hover{
     display:flex;
     justify-content:space-evenly;
     align-items: center;
+    transition:all 0.5s ease;
 }
 .todo li{
     flex:1;
@@ -70,4 +71,54 @@ form button:hover{
 }
 .todo-item{
     padding:0rem 0.5rem;
+}
+/* we can't click on the icon anymore */
+.fa-trash,.fa-check{
+    pointer-events: none;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+/* transisation after dellete */
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+
+/* we can't style the predefined the select tag so we remove the predefined style and then style accordingly*/
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+   
+}
+.select{
+    margin:1rem;
+    position: relative;
+    overflow: hidden;
+}
+select{
+    color: rgb(36, 22, 15);
+    width:10rem;
+    cursor:pointer;
+    padding :1rem
+}
+.select::after{
+    content: "\25BC";
+    position: absolute;
+    background: indianred;
+    top:0;
+    right:0;
+    padding:1rem;
+    pointer-events: none;
+}
+.select:hover::after{
+    background: rgb(36, 22, 15);
+    color:indianred;
 }
