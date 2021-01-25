@@ -26,3 +26,6 @@ body{
     font-size: medium;
     color:dimgray;
 }
+#map {
+    height: 100%;
+  }

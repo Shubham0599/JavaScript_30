@@ -1,16 +1,10 @@
 //selector
 const locBtn=document.querySelector('.loc-btn');
-//const locBtncon=document.querySelector('.con');
-
 const locArea=document.querySelector('.loc-area');
-//const locArea=document.querySelector('.loc-area');
-
 //event listener
 locBtn.addEventListener('click',loc);
-locBtncon.addEventListener('click',loccon);
 
 //function
-
 function loc(){
     //navigator.geolocation can access the geolacation API
     if(!navigator.geolocation){
@@ -30,7 +24,20 @@ function success(position){
     var log=position.coords.longitude.toFixed(3)
     locArea.innerHTML='Latitude '+ lat+`<br></br>`+' Longitude '+log ;
     console.log('Longitude',position.coords.longitude);
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyC4Dfwkvf7QBYK06vQhsKB1xLiK6aXB4FI";
+
+  document.getElementById("map").innerHTML = "<img src='"+img_url+"'>";
 }
 function error(){
 console.log('Geolocation error');
 }
+//map
+// let map;
+
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     center: { lat: -34.397, lng: 150.644 },
+//     zoom: 8,
+//   });
+// }
