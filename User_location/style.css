@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(120deg,rgb(231, 231, 120),lightgreen,lightblue);
+}
+.container{
+    height:20vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.loc-btn{
+    padding:0.5rem;
+    font-size: 1rem;
+    background-color: darkslategray;
+    color:white;
+    border-radius: 5%;
+}
+.loc-area{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color:dimgray;
+}
