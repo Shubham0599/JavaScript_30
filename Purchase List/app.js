@@ -20,6 +20,8 @@ function addTodo(event){
     newTodo.innerText=todoInput.value;
     newTodo.classList.add('todo-item');
     todoDiv.appendChild(newTodo);
+    //save to local storage array 
+    save(todoInput.value);
     //checkmark button
     const completedButton=document.createElement('button');
     completedButton.innerHTML='<i class="fas fa-check"></i>';
@@ -92,3 +94,16 @@ function filterTodo(e){
     })
 }
 
+//save something to local storage
+
+function save(todo){
+    //check if we have something in local storage
+    let todos;
+    if(localStorage.getItem('todos')===null){
+        todos=[];
+    }else{
+        todos=JSON.parse(localStorage.getItem('todos'));
+    }
+    todos.push(todo);
+    localStorage.setItem('todos',JSON.stringify(todos));
+}
