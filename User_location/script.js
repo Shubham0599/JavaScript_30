@@ -32,7 +32,7 @@ function success(position){
 function error(){
 console.log('Geolocation error');
 }
-//map
+
 // let map;
 
 // function initMap() {
