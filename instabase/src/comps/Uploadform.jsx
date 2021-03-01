@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-
-
 function Uploadform(){
 
     const [file,setfile]=useState(null);
@@ -19,12 +17,15 @@ function Uploadform(){
         }
         }
 
-    return <div>
+    return <form>
+    <label>
         <input type="file" onChange={handlechg}></input>
+        <span>+</span>
+    </label>
         <div className="output">
             {error&&<div>{error}</div>}
             {file&&<div>{file.name}</div>}
         </div>
-    </div>
+    </form>
 }
 export default Uploadform;
