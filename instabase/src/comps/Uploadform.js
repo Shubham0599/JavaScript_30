@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Progress from "./ProgressBar.js"
 
 function Uploadform(){
 
@@ -12,20 +13,23 @@ function Uploadform(){
             seterror('');
         }
         else{
-            setfile(null);
+            setfile(null);   
             seterror("Invalid file Selected");
         }
         }
 
-    return <form>
+    return (
+    <form>
     <label>
         <input type="file" onChange={handlechg}></input>
         <span>+</span>
     </label>
         <div className="output">
-            {error&&<div>{error}</div>}
+            {error&&<div className="error">{error}</div>}
             {file&&<div>{file.name}</div>}
+            {file&& <Progress file={file} setFile={setfile}  />}
         </div>
     </form>
+    );
 }
 export default Uploadform;
