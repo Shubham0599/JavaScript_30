@@ -17,9 +17,10 @@ function useStorage(file){
         },async ()=>{
             const url= await storageRef.getDownloadURL();
             const createdAt=timestamp();
-            collectionRef.add({url,createdAt});  
+            // ek awit nahi laga to 1hr waste ho gaya
+            await collectionRef.add({url,createdAt});  
             setUrl(url);
-        })
+        });
     },[file]);
     return {progress,url,error};
 }  
